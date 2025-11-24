@@ -23,7 +23,7 @@ const integrantes = [
   {
     nome: "Ruan Luca Feliciano de Carvalho",
     rm: "562218",
-    turma: "1TDSR",
+    turma: "1TDSA",
     linkedin: "https://www.linkedin.com/in/ruan-luca-feliciano-de-carvalho-a36905267",
     github: "https://github.com/RuanLuca",
     foto: "/team/yanick.png", // Yanick's photo for Ruan
