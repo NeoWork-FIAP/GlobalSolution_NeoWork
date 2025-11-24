@@ -2,9 +2,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, Clock, TrendingUp } from "lucide-react"
+import Link from "next/link"
 
 const cursos = [
   {
+    id: 1,
     titulo: "Fundamentos de Inteligência Artificial",
     descricao: "Aprenda os conceitos básicos de IA e como ela está transformando o mercado de trabalho",
     nivel: "Iniciante",
@@ -12,6 +14,7 @@ const cursos = [
     categoria: "IA & Machine Learning",
   },
   {
+    id: 2,
     titulo: "Análise de Dados com Python",
     descricao: "Desenvolva habilidades em análise de dados, visualização e tomada de decisões baseadas em dados",
     nivel: "Intermediário",
@@ -19,6 +22,7 @@ const cursos = [
     categoria: "Data Science",
   },
   {
+    id: 3,
     titulo: "Automação de Processos com RPA",
     descricao: "Domine ferramentas de automação robótica de processos e otimize fluxos de trabalho",
     nivel: "Intermediário",
@@ -26,6 +30,7 @@ const cursos = [
     categoria: "Automação",
   },
   {
+    id: 4,
     titulo: "Design Thinking para Inovação",
     descricao: "Aprenda metodologias ágeis e design thinking para resolver problemas complexos",
     nivel: "Iniciante",
@@ -33,6 +38,7 @@ const cursos = [
     categoria: "Inovação",
   },
   {
+    id: 5,
     titulo: "Marketing Digital e Analytics",
     descricao: "Estratégias modernas de marketing digital com foco em métricas e resultados",
     nivel: "Iniciante",
@@ -40,6 +46,7 @@ const cursos = [
     categoria: "Marketing",
   },
   {
+    id: 6,
     titulo: "Desenvolvimento Web Full Stack",
     descricao: "Construa aplicações web completas com as tecnologias mais demandadas do mercado",
     nivel: "Avançado",
@@ -74,9 +81,9 @@ export default function CursosPage() {
           </CardContent>
         </Card>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {cursos.map((curso, index) => (
-            <Card key={index} className="flex flex-col transition-all hover:shadow-lg">
+        <div className="grid gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+          {cursos.map((curso) => (
+            <Card key={curso.id} className="flex flex-col transition-all hover:shadow-lg">
               <CardHeader>
                 <Badge className="mb-2 w-fit">{curso.categoria}</Badge>
                 <CardTitle className="text-xl">{curso.titulo}</CardTitle>
@@ -93,7 +100,9 @@ export default function CursosPage() {
                     <span>{curso.duracao}</span>
                   </div>
                 </div>
-                <Button className="w-full">Ver Detalhes</Button>
+                <Button asChild className="w-full">
+                  <Link href={`/cursos/${curso.id}`}>Ver Detalhes</Link>
+                </Button>
               </CardContent>
             </Card>
           ))}
